@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useUserContext from "../hooks/useUserContext";
 import { Link } from "react-router-dom";
+import { serverUrl } from "../setup";
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -13,7 +14,7 @@ function Register() {
     if (username && password) {
       const data = { username: username, password: password };
       try {
-        const response = await fetch("http://localhost:4000/auth/register", {
+        const response = await fetch(serverUrl + "/auth/register", {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
@@ -43,7 +44,10 @@ function Register() {
       </h2>
       <form
         onSubmit={handleSubmit}
-        className={"bg-white p-3 m-2 shadow-md rounded max-w-80 w-1/3 min-w-64" + (error ? " shadow-red-600/20" : "")} // animate-shake is a custom animation defined in index.css
+        className={
+          "bg-white p-3 m-2 shadow-md rounded max-w-80 w-1/3 min-w-64" +
+          (error ? " shadow-red-600/20" : "")
+        } // animate-shake is a custom animation defined in index.css
       >
         <label className="block text-gray-600 text-lg ml-2 mb-1">
           Username
@@ -78,8 +82,17 @@ function Register() {
           Register
         </button>
       </form>
-      <p>Already have a account? <Link to="/login" className="text-yellow-500 hover:text-yellow-600">Login</Link></p>
-      {error && <p className="text-pink-700 font-medium text-md tracking-wide">{error}</p>}
+      <p>
+        Already have a account?{" "}
+        <Link to="/login" className="text-yellow-500 hover:text-yellow-600">
+          Login
+        </Link>
+      </p>
+      {error && (
+        <p className="text-pink-700 font-medium text-md tracking-wide">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

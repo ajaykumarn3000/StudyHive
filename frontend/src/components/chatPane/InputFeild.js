@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import useUserContext from "../../hooks/useUserContext";
 import useSocketContext from "../../hooks/useSocketContext";
+import { serverUrl } from "../../setup";
 
 const newChat = async (body, token, groupID, setChats, socket) => {
-  const response = await fetch(
-    `http://localhost:4000/api/chat/new/${groupID}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ chatBody: body }),
-    }
-  );
+  const response = await fetch(serverUrl + `/api/chat/new/${groupID}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ chatBody: body }),
+  });
   const data = await response.json();
   await socket.emit("send-message", { data, roomID: groupID });
   setChats((prev) => [...prev, data]);
@@ -33,8 +31,8 @@ const InputFeild = ({ setChats, groupID }) => {
 
   const handleChange = (e) => {
     setText(e.target.value);
-    let scrollHeight = document.getElementById('textbox').scrollHeight;
-    let clientHeight = document.getElementById('textbox').clientHeight;
+    let scrollHeight = document.getElementById("textbox").scrollHeight;
+    let clientHeight = document.getElementById("textbox").clientHeight;
 
     if (scrollHeight > clientHeight) {
       setRow((prev) => prev + 1);
@@ -48,7 +46,8 @@ const InputFeild = ({ setChats, groupID }) => {
         (text !== "" ? " border-yellow-500/50" : " border-gray-400 ")
       }
     >
-      <textarea id="textbox"
+      <textarea
+        id="textbox"
         rows={row}
         className="grow ml-2 text-lg p-1 font-semibold bg-transparent outline-none text-gray-500 resize-y"
         autoFocus
