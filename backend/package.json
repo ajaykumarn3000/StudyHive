@@ -5,10 +5,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "build": "npm install"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ajaykumar Nadar",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -16,7 +19,6 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongoose": "^8.0.3",
-    "passport": "^0.7.0",
-    "passport-local": "^1.0.0"
+    "socket.io": "^4.7.2"
   }
 }

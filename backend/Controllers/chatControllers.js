@@ -15,14 +15,14 @@ const getAllChats = async (req, res) => {
   }
 };
 
-// POST /api/chat/new/:chatID
+// POST /api/chat/new/:groupID
 const newChat = async (req, res) => {
-  // const { chatID } = req.params;
+  const { groupID } = req.params;
   const chatID = new mongoose.Types.ObjectId();
   // Change it
 
   const { _id, username } = req.user;
-  const { groupID, chatBody } = req.body;
+  const { chatBody } = req.body;
 
   try {
     let group = await GroupModel.findById(groupID);
@@ -35,7 +35,7 @@ const newChat = async (req, res) => {
     });
 
     const updatedGroup = await GroupModel.findByIdAndUpdate(groupID, group);
-    return res.status(200).json(group);
+    return res.status(200).json(group.chats[group.chats.length - 1]);
   } catch (err) {
     console.log(err);
     console.log("We found a error");

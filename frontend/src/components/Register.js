@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useUserContext from "../hooks/useUserContext";
+import { Link } from "react-router-dom";
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -36,11 +37,19 @@ function Register() {
   };
 
   return (
-    <div className="container">
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Username</label>
+    <div className="Register h-full flex flex-col justify-center items-center self-center hover:cursor-default">
+      <h2 className="text-center text-3xl mb-2 text-gray-600 font-semibold">
+        Register to <span className="text-yellow-400 ">StudyHive</span>
+      </h2>
+      <form
+        onSubmit={handleSubmit}
+        className={"bg-white p-3 m-2 shadow-md rounded max-w-80 w-1/3 min-w-64" + (error ? " shadow-red-600/20" : "")} // animate-shake is a custom animation defined in index.css
+      >
+        <label className="block text-gray-600 text-lg ml-2 mb-1">
+          Username
+        </label>
         <input
+          className="block border-2 border-gray-400 p-1 rounded text-lg focus:border-yellow-400 w-full mb-3"
           type="text"
           name="username"
           value={username}
@@ -49,8 +58,11 @@ function Register() {
           }}
         />
 
-        <label>Password</label>
+        <label className="block text-gray-600 text-lg ml-2 mb-1">
+          Password
+        </label>
         <input
+          className="block border-2 border-gray-400 p-1 rounded text-lg focus:border-yellow-400 w-full mb-3"
           type="password"
           name="password"
           value={password}
@@ -59,9 +71,15 @@ function Register() {
           }}
         />
 
-        <button type="submit">Submit</button>
+        <button
+          className="w-full font-semibold bg-yellow-200 p-1 text-lg my-2 text-center text-gray-700 hover:bg-yellow-300 hover:text-gray-800 active:bg-yellow-500 active:text-white shadow active:shadow-none transition-colors rounded"
+          type="submit"
+        >
+          Register
+        </button>
       </form>
-      {error && <p>{error}</p>}
+      <p>Already have a account? <Link to="/login" className="text-yellow-500 hover:text-yellow-600">Login</Link></p>
+      {error && <p className="text-pink-700 font-medium text-md tracking-wide">{error}</p>}
     </div>
   );
 }

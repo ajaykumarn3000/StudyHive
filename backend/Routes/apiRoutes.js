@@ -33,6 +33,6 @@ router.get("/group/members/:groupID", getGroupMembers);
 router.get("/chat/all/:groupID", getAllChats);
 
 // New Chat
-router.post("/chat/new/:chatID", newChat);
+router.post("/chat/new/:groupID", newChat);
 
 export default router;

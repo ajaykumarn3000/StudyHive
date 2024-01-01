@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { SocketProvider } from "../context/socketContext";
 import GroupWindow from "./groupPane/GroupWindow";
 import ChatWindow from "./chatPane/ChatWindow";
-import Navbar from "./Navbar";
 
-function Home() {
+function Dashboard() {
   const [currentChat, setCurrentChat] = useState(null);
   const [height, setHeight] = useState(0);
 
@@ -13,7 +12,9 @@ function Home() {
       const rootElement = document.getElementById('root');
       const navbarElement = document.getElementsByClassName('Navbar');
       if (rootElement && navbarElement) {
-        setHeight(rootElement.clientHeight - navbarElement[0].clientHeight);
+        console.log("Root", rootElement.clientHeight);
+        console.log("Navbar", navbarElement[0].clientHeight);
+        console.log((rootElement.clientHeight - navbarElement[0].clientHeight));
       }
     };
 
@@ -31,9 +32,8 @@ function Home() {
 
 
   return (
-    <div className="Home h-full flex flex-col">
-      <Navbar />
-      <div className={`flex grow`} style={{height: height}}>
+      <div className="Dashboard flex grow">
+        <h1>{height}</h1>
         <SocketProvider>
           <GroupWindow
             setCurrentChat={setCurrentChat}
@@ -42,8 +42,7 @@ function Home() {
           {currentChat && <ChatWindow groupID={currentChat} />}
         </SocketProvider>
       </div>
-    </div>
   );
 }
 
-export default Home;
+export default Dashboard;

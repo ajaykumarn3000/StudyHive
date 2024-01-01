@@ -20,7 +20,7 @@ const createGroup = async (req, res) => {
     let user = await UserModel.findById(_id);
     user.groups.push({ _id: group._id, groupName: groupName });
     const updatedUser = await UserModel.findByIdAndUpdate(_id, user);
-    return res.status(200).json({ group, user });
+    return res.status(200).json({ _id: group._id, groupName: group.name });
   } catch (err) {
     console.log(err);
     console.log("We found a error");
@@ -41,7 +41,7 @@ const joinGroup = async (req, res) => {
     let user = await UserModel.findById(_id);
     user.groups.push({ _id: groupID, groupName: group.name });
     await UserModel.findByIdAndUpdate(_id, user);
-    return res.status(200).json({ group, user });
+    return res.status(200).json({ _id: group._id, groupName: group.name });
   } catch (err) {
     console.log(err);
     console.log("We found a error");

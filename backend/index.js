@@ -3,14 +3,11 @@ import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
 import cors from "cors";
-import jwt from "jsonwebtoken";
-
-// Mongoose Models
-import { UserModel, GroupModel } from "./models.js";
-
 // Express Routes
 import apiRoutes from "./Routes/apiRoutes.js";
 import authRoutes from "./Routes/authRoutes.js";
+// Socket Server
+import socketServer from "./server.js";
 
 // Backend PORT
 const port = process.env.PORT || 4000;
@@ -18,6 +15,9 @@ const port = process.env.PORT || 4000;
 // Express App
 const app = express();
 app.use(cors());
+
+// Socket Server
+socketServer(app);
 
 // Middleware: To get the request body
 app.use(express.json());

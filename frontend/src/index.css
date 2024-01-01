@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+input, input:focus, input:hover, input:active {
+  outline: none;
+}
+.material-symbols-rounded {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 600,
+  'GRAD' 100,
+  'opsz' 24
+}
+
+.GroupList::-webkit-scrollbar, .AllChats::-webkit-scrollbar {
+  width: 0.3rem;
+}
+.GroupList::-webkit-scrollbar-thumb, .AllChats::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 0.25rem;
+}
+.GroupList::-webkit-scrollbar-thumb:hover, .AllChats::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+.GroupList::-webkit-scrollbar-thumb:active, .AllChats::-webkit-scrollbar-thumb:active {
+  background: #555;
+}
+
+.Chat {
+  width: fit-content;
+  max-width: calc(2*100%/3);
+}
+
+.CopyBtn {
+  
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 100,
+  'opsz' 24
+}
