@@ -7,7 +7,6 @@ import cors from "cors";
 import apiRoutes from "./Routes/apiRoutes.js";
 import authRoutes from "./Routes/authRoutes.js";
 // Socket Server
-import socketServer from "./server.js";
 
 // Backend PORT
 const port = process.env.PORT || 4000;
@@ -15,9 +14,6 @@ const port = process.env.PORT || 4000;
 // Express App
 const app = express();
 app.use(cors());
-
-// Socket Server
-socketServer(app);
 
 // Middleware: To get the request body
 app.use(express.json());

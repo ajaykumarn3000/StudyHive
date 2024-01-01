@@ -3,18 +3,16 @@ import useUserContext from "../../hooks/useUserContext";
 import Chat from "./Chat";
 import InputFeild from "./InputFeild";
 import useSocketContext from "../../hooks/useSocketContext";
+import { serverUrl } from "../../setup";
 
 const getChats = async (groupID, token, setChats) => {
-  const response = await fetch(
-    `http://localhost:4000/api/chat/all/${groupID}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  const response = await fetch(serverUrl + `/api/chat/all/${groupID}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
   const data = await response.json();
   setChats(data);
 };

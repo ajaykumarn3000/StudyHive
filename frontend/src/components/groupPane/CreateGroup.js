@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import useUserContext from "../../hooks/useUserContext";
+import { serverUrl } from "../../setup";
 
 const createNewGroup = async (token, groupName, setGroups) => {
-  const response = await fetch("http://localhost:4000/api/group/new", {
+  const response = await fetch(serverUrl + "/api/group/new", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

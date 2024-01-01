@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import useUserContext from "../../hooks/useUserContext";
+import { serverUrl } from "../../setup";
 
 const JoinNewGroup = async (token, groupID, setGroups) => {
-  const response = await fetch(
-    `http://localhost:4000/api/group/join/${groupID}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  const response = await fetch(serverUrl + `/api/group/join/${groupID}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
   if (response.ok) {
     const data = await response.json();
     console.log("New Group: ", data);
