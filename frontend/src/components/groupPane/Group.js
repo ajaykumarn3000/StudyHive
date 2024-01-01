@@ -29,7 +29,7 @@ const Group = (props) => {
         <div className="flex gap-2">
           <span>{_id}</span>{" "}
           <span
-            class="CopyBtn text-gray-600 text-xl transition-all hover:text-gray-400 hover:cursor-pointer material-symbols-rounded"
+            className="CopyBtn text-gray-600 text-xl transition-all hover:text-gray-400 hover:cursor-pointer material-symbols-rounded"
             onClick={(e) => {
               navigator.clipboard.writeText(_id);
               setCopy("done_all");
