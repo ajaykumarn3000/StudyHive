@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import useUserContext from "../../hooks/useUserContext";
 import Chat from "./Chat";
 import InputFeild from "./InputFeild";
@@ -33,6 +33,12 @@ const ChatWindow = (props) => {
       setChats((prev) => [...prev, data]);
     });
   }, [socket]);
+
+  useEffect(() => {
+    // Scroll to the bottom when chats update
+    const chatWindow = document.querySelector(".AllChats");
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+  }, [chats]);
 
   return (
     <div className="ChatWindow grow-[2] bg-white m-2 ml-0 shadow rounded flex flex-col p-5 pb-3">

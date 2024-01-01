@@ -56,7 +56,10 @@ const InputFeild = ({ setChats, groupID }) => {
         onChange={handleChange}
         value={text}
         onKeyDown={(e) => {
-          if (e.key === "Enter") handleClick();
+          if (e.key === "Enter") {
+            e.preventDefault();
+            handleClick();
+          }
         }}
       />
       <button
