@@ -33,6 +33,10 @@ app.use("/auth/", authRoutes);
 
 app.use("/api/", apiRoutes);
 
+app.get("/status", (req, res) => {
+  return res.status(200).json({ message: "Server is running" });
+})
+
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGO_URI)
