@@ -3,7 +3,7 @@ import http from "http";
 import express from "express";
 
 const port = process.env.SOCKET_PORT || 4001;
-const clientURI = process.env.CLIENT_URI || "http://localhost:3000";
+const clientURI = process.env.CLIENT_URL || "http://localhost:3000";
 
 const app = express();
 
