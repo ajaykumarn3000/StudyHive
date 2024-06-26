@@ -75,4 +75,4 @@ To get the project up and running on your local machine, follow these steps:
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
 ## License
-Distributed under the MIT License. See [LICENCE](LICENCE) for more information.
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
