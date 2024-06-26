@@ -6,7 +6,6 @@ StudyHive is an innovative platform designed to enhance collaborative learning a
 
 - **Real-time Chat**: Engage in live discussions with peers or instructors.
 - **Group Discussions**: Create or join groups for collaborative learning.
-- **Resource Sharing**: Easily share and access educational materials.
 
 ## Project Structure
 
@@ -29,7 +28,7 @@ To get the project up and running on your local machine, follow these steps:
 ### Installation
 
 1. Clone the repository
-   ```sh
+  ```sh
    git clone https://github.com/yourusername/StudyHive.git
    ```
 
@@ -76,4 +75,4 @@ To get the project up and running on your local machine, follow these steps:
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
 ## License
-Distributed under the MIT License. See LICENSE for more information.
+Distributed under the MIT License. See [LICENCE](LICENCE) for more information.
