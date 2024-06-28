@@ -2,6 +2,8 @@
 
 StudyHive is an innovative platform designed to enhance collaborative learning and communication among students. Utilizing cutting-edge web technologies, StudyHive offers a fluid experience for engaging in real-time chat, group discussions, and the sharing of educational resources.
 
+![Screenshot_26-6-2024_145938_studyhive netlify app_io11lt](https://github.com/ajaykumarn3000/StudyHive/assets/104309385/3187146f-565b-4ae9-aed1-5b46281d5b73)
+
 ## Features
 
 - **Real-time Chat**: Engage in live discussions with peers or instructors.
